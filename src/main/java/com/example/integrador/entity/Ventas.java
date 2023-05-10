@@ -1,0 +1,58 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.example.integrador.entity;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import java.io.Serializable;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+/**
+ *
+ * @author carlo
+ */
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+@Entity (name="Ventas")
+@Table(name="ventas")
+public class Ventas implements Serializable{
+       private static final long serialVersionUID=1L;
+     
+    @Id
+    @Column(name="id")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private long id;
+    @Column(name="precio_final")
+    private float precio_final;
+    @Column(name="precio_venta")
+    private float precio_venta;
+    @Column(name="precio_unitario")
+    private float precio_unitario;
+    @Column (name="descuento")
+    private float descuento;
+    @Column(name="cantidad")
+    private int cantidad;
+    @Column(name="estado")
+    private boolean estado;
+    @Column(name="fecha")
+    private String fecha;
+    @ManyToOne
+    @JoinColumn(name="id_producto",nullable = false)
+    private Productos productos;
+    @ManyToOne
+    @JoinColumn(name="id_cliente",nullable = false)
+    private Clientes clientes;
+}
