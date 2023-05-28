@@ -15,5 +15,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface Idirecciones extends JpaRepository<Direcciones, Long>{
      @Query("Select d from Direcciones d where d.estado = '1'")
+
     List<Direcciones> findAllCustom();
 }

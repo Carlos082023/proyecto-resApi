@@ -1,0 +1,118 @@
+<!doctype html>
+<html  xmls:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Bootstrap demo</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    </head>
+
+    <body style="background:linear-gradient(to right, #00467f, #a5cc82)">
+        <div class="container-fluid tm-content-container" >
+
+            <nav class="navbar  fixed-top p-3 bg-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand text-light" href="/tienda/">Menu Operaciones</a>
+                    <button class="navbar-toggler bg-body-tertiary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="offcanvas offcanvas-end  bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title text-light" id="offcanvasNavbarLabel">Menu</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body ">
+                            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                <li class="nav-item">
+                                    <a class="nav-link active text-light" aria-current="page" href="../tienda/Categoria">Categoria</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link  text-light" aria-current="page" href="../tienda/Producto">Producto</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link  text-light" aria-current="page" href="../tienda/Proveedor">Proveedores</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link  text-light" aria-current="page" href="../tienda/Cliente">Clientes</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link  text-light" aria-current="page" href="../tienda/Direccion">Direcciones</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link  text-light" aria-current="page" href="../tienda/Venta">Ventas</a>
+                                </li>
+
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <div class="container mt-5">
+
+                <h1 class="pt-4 text-center">Nueva Direccion</h1>
+
+                <div class="col-sm-4">
+                    <form method="POST" action="#" th:action="@{/saveDireccion}" th:object="${direccion}"class="pb-5">
+
+                      
+                        <div class="mb-3 text-white">
+                            <select th:field="*{clientes}" >
+                                <option th:each="selectCliente : ${listClientes}"
+                                        th:value ="${selectCliente.id}"
+                                        th:text="${selectCliente.nombre}"/>      
+                            </select> Id Cliente
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" th:field="*{ciudad}" class="form-control">
+                            <div class="form-text text-white">Ciudad</div> 
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" th:field="*{comuna}" class="form-control">
+                            <div class="form-text text-white">Comuna</div> 
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" th:field="*{calle}" class="form-control">
+                            <div class="form-text text-white">Calle</div> 
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" th:field="*{numero}" class="form-control">
+                            <div class="form-text text-white">Numero</div> 
+                        </div>
+                        <div class="mb-3">
+                            <select class="form-select" th:field="*{estado}">
+                                <option th:value="'True'" th:text="Activo"></option>
+                                <option th:value="'False'" th:text="Inactivo"></option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="reset" class="btn btn-primary">cancelar</button>
+                        </div>
+
+                    </form>
+
+                </div>
+
+
+
+            </div>
+
+            <div class="g-col-12 fixed-bottom bg-dark text-white p-3">
+                <footer class="row mx-auto tm-footer">
+                    <div class="col-md-6 px-0">
+                        Copyright 2021 Astro Motion Company
+                    </div>
+                    <div class="col-md-6 px-0 tm-footer-right">
+                        Design by 
+                    </div>
+
+                </footer>
+
+            </div>
+
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    </body>
+</html>

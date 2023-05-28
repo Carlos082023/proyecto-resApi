@@ -4,6 +4,7 @@
  */
 package com.example.integrador.restcontrollers;
 
+import com.example.integrador.entity.Clientes;
 import com.example.integrador.entity.Direcciones;
 import com.example.integrador.services.DireccionesService;
 import java.util.List;
@@ -30,6 +31,7 @@ public class DireccionesRestController {
     
     @GetMapping
     public List<Direcciones> findAll(){
+        Clientes cliente = new Clientes();
         return service.findAll();
     }
     

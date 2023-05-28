@@ -14,6 +14,6 @@ import org.springframework.data.jpa.repository.Query;
  * @author carlo
  */
 public interface Icategorias extends JpaRepository<Categorias, Long>{
-      @Query("Select c from Categorias c where c.estado = '1'")
+   @Query("Select c from Categorias c where c.estado = '1'")
     List<Categorias> findAllCustom();
 }

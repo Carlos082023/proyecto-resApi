@@ -29,7 +29,7 @@ import lombok.NoArgsConstructor;
 @Entity (name="Direcciones")
 @Table(name="direcciones")
 public class Direcciones implements Serializable{
-    
+  
      private static final long serialVersionUID=1L;
      
      @Id
@@ -49,4 +49,6 @@ public class Direcciones implements Serializable{
     @ManyToOne
     @JoinColumn(name="id_cliente",nullable = false)
     private Clientes clientes;
+   
+ 
 }

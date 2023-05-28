@@ -16,4 +16,5 @@ import org.springframework.data.jpa.repository.Query;
 public interface Iclientes extends JpaRepository<Clientes, Long>{
          @Query("Select c from Clientes c where c.estado = '1'")
     List<Clientes> findAllCustom();
+
 }

@@ -27,9 +27,9 @@ import lombok.NoArgsConstructor;
 @Entity (name="Clientes")
 @Table(name="clientes")
 public class Clientes implements Serializable{
-      private static final long serialVersionUID=1L;
+     private static final long serialVersionUID=1L;
       
-           @Id
+     @Id
     @Column(name="id")
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private long id;
